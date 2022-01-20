@@ -1,0 +1,18 @@
+tosca_definitions_version: cloudify_dsl_1_3
+
+imports:
+  - http://www.getcloudify.org/spec/cloudify/6.3.0.dev1/types.yaml
+  # the name of the package (setup.py > name)
+  - plugin:custom-plugin-test-stp-name
+
+node_templates:
+  test_node_template:
+    type: cloudify.nodes.Root
+
+# workflows:
+#   task: my_plugin.tasks.my_task
+#   workflow: my_plugin.workflows.workflow_demo
+
+workflows:
+  # the name of plugin in plugin.yaml
+  task: custom-plugin-test-name.tasks.my_task
